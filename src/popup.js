@@ -2,111 +2,48 @@
 
 import './popup.css';
 
+const ergonamesTestnetAPIBaseUrl = "https://testnet-api.ergonames.com";
+const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
+
 (function() {
-  // We will make use of Storage API to get and store `count` value
-  // More information on Storage API can we found at
-  // https://developer.chrome.com/extensions/storage
 
-  // To get storage access, we have to mention it in `permissions` property of manifest.json file
-  // More information on Permissions can we found at
-  // https://developer.chrome.com/extensions/declare_permissions
-  const counterStorage = {
-    get: cb => {
-      chrome.storage.sync.get(['count'], result => {
-        cb(result.count);
-      });
-    },
-    set: (value, cb) => {
-      chrome.storage.sync.set(
-        {
-          count: value,
-        },
-        () => {
-          cb();
+  function resolve() {
+    document.getElementById('button').addEventListener('click', async () => {
+      let ergoname = document.getElementById('search').value;
+      if (ergoname == "") {
+        document.getElementById("address").innerHTML = "Please Search an ErgoName"
+      } else {
+        let address = await resolve_response(ergoname);
+        if (address == null) {
+          document.getElementById("address").innerHTML = "None";
+        } else {
+          document.getElementById("address").innerHTML = address;
         }
-      );
-    },
-  };
-
-  function setupCounter(initialValue = 0) {
-    document.getElementById('counter').innerHTML = initialValue;
-
-    document.getElementById('incrementBtn').addEventListener('click', () => {
-      updateCounter({
-        type: 'INCREMENT',
-      });
-    });
-
-    document.getElementById('decrementBtn').addEventListener('click', () => {
-      updateCounter({
-        type: 'DECREMENT',
-      });
-    });
-  }
-
-  function updateCounter({ type }) {
-    counterStorage.get(count => {
-      let newCount;
-
-      if (type === 'INCREMENT') {
-        newCount = count + 1;
-      } else if (type === 'DECREMENT') {
-        newCount = count - 1;
-      } else {
-        newCount = count;
-      }
-
-      counterStorage.set(newCount, () => {
-        document.getElementById('counter').innerHTML = newCount;
-
-        // Communicate with content script of
-        // active tab by sending a message
-        chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-          const tab = tabs[0];
-
-          chrome.tabs.sendMessage(
-            tab.id,
-            {
-              type: 'COUNT',
-              payload: {
-                count: newCount,
-              },
-            },
-            response => {
-              console.log('Current count value passed to contentScript file');
-            }
-          );
-        });
-      });
-    });
-  }
-
-  function restoreCounter() {
-    // Restore count value
-    counterStorage.get(count => {
-      if (typeof count === 'undefined') {
-        // Set counter value as 0
-        counterStorage.set(0, () => {
-          setupCounter(0);
-        });
-      } else {
-        setupCounter(count);
       }
     });
   }
 
-  document.addEventListener('DOMContentLoaded', restoreCounter);
+  async function resolve_response(ergoname) {
+    let response = await lookup_owner_address(ergoname);
+    let address = response['ergo'];
+    console.log(address);
+    return address;
+  }
 
-  // Communicate with background file by sending a message
-  chrome.runtime.sendMessage(
-    {
-      type: 'GREETINGS',
-      payload: {
-        message: 'Hello, my name is Pop. I am from Popup.',
-      },
-    },
-    response => {
-      console.log(response.message);
-    }
-  );
+  async function lookup_owner_address(ergoname) {
+    let url = create_url(ergoname);
+    return await fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        return data;
+      })
+  }
+
+  function create_url(ergoname) {
+    let url = ergonamesTestnetAPIBaseUrl + "/ergonames/resolve/" + ergoname;
+    console.log(url);
+    return url;
+  }
+
+  document.addEventListener('DOMContentLoaded', resolve);
 })();

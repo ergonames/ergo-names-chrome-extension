@@ -15,59 +15,37 @@ html {
 }
 
 body {
-    width: 350px;
-    height: 300px;
+    width: 300px;
+    height: 450px;
 }
 
 .app {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
     padding: 20px;
 }
 
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
+.window-title {
+    padding-left: 10px;
 }
 
-.subtitle {
-    font-size: 12px;
+.window-subtitle {
+    padding-left: 10px;
 }
 
-code {
-    font-size: 12px;
-    font-family: inherit;
-    background-color: rgba(254, 237, 185, .3);
-    padding: 2px 4px;
-    border-radius: 2px;
-}
-
-.counter-label {
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.counter {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.button-container {
-    margin-top: 15px;
-}
-
-.button {
-    border: 0;
-    display: inline-block;
+.search-input {
+    display: block;
+    margin: 15px auto;
+    width: 85%;
     padding: 10px 20px;
-    margin-right: 4px;
-    margin-left: 4px;
-    background-color: bisque;
+}
+
+.search-button {
+    border: 0;
+    display: block;
+    padding: 10px 20px;
+    margin: 0 auto;
+    background-color: blue;
+    color: white;
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
@@ -76,17 +54,23 @@ code {
     user-select: none;
 }
 
-.button:focus {
+.search-button:focus {
     outline: none;
 }
 
-.button:hover {
+.search-button:hover {
     transform: scale(1.1);
 }
 
+.address-text {
+    margin: 20px auto;
+    width: 95%;
+    word-wrap: break-word;
+}
+
 .divider {
-    margin: 30px auto 25px;
-    width: 50px;
+    margin: 30px auto;
+    width: 80%;
     border: .5px dashed #000;
     opacity: .1;
 }
