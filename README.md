@@ -1,15 +1,23 @@
 # <img src="public/icons/icon_48.png" width="45" align="left"> Ergo Names Extension
 
-My Chrome Extension
-
-## Features
-
-- Feature 1
-- Feature 2
+A chrome extension to resolve Ergo Names NFT ownership.
 
 ## Install
 
-[**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
+#### Chrome Web Store
+
+Currently not published on Google Chrome Store.
+
+##### Build from source
+
+Clone the repo
+
+Run
+```
+npm run watch
+```
+
+Load unpacked extension in build folder into Chrome.
 
 ## Contribution
 
