@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My Chrome Extension</title>
     <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
   <div class="app">
@@ -15,6 +16,11 @@
     <hr class="divider" />
     <h1 class="address-text" id="address">Resolved Address</h1>
     <button class="copy-button" id="copy-address">Copy Address</button>
+    <ul class="toolbar">
+      <button class="toolbar-button"><i class="fas fa-home"></i></button>
+      <button class="toolbar-button"><i class="fas fa-list-alt"></i></button>
+      <button class="toolbar-button"><i class="fas fa-cog"></i></button>
+    </ul>
   </div>
 
   <script src="popup.js"></script>
