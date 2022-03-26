@@ -8,19 +8,37 @@
 </head>
 <body>
   <div class="app">
-    <h1 class="window-title">Ergo Names Extension</h1>
-    <p class="window-subtitle">Powered By Ergo</p>
-    <hr class="divider" />
-    <input class="search-input" id="search" placeholder="Search for an Ergo Name...">
-    <button class="search-button" id="button">Search</button>
-    <hr class="divider" />
-    <h1 class="address-text" id="address">Resolved Address</h1>
-    <button class="copy-button" id="copy-address">Copy Address</button>
-    <ul class="toolbar">
-      <button class="toolbar-button"><i class="fas fa-home"></i></button>
-      <button class="toolbar-button"><i class="fas fa-list-alt"></i></button>
-      <button class="toolbar-button"><i class="fas fa-cog"></i></button>
-    </ul>
+
+    <header class="header">
+      <h1 class="window-title">Ergo Names Extension</h1>
+      <p class="window-subtitle">Powered By Ergo</p>
+      <hr class="divider" />
+    </header>
+
+    <div class="section" id="home-page">
+      <input class="search-input" id="search" placeholder="Search for an Ergo Name...">
+      <button class="search-button" id="button">Search</button>
+      <hr class="divider" />
+      <h1 class="address-text" id="address">Resolved Address</h1>
+      <button class="copy-button" id="copy-address">Copy Address</button>
+    </div>
+
+    <div class="section" id="contact-page" style="display: none;">
+      <h1>Contact</h1>
+    </div>
+
+    <div class="section" id="settings-page" style="display: none;">
+      <h1>Settings</h1>
+    </div>
+    
+    <footer>
+      <ul class="toolbar">
+        <button class="toolbar-button" id="home-button"><i class="fas fa-home"></i></button>
+        <button class="toolbar-button" id="contact-button"><i class="fas fa-list-alt"></i></button>
+        <button class="toolbar-button" id="settings-button"><i class="fas fa-cog"></i></button>
+      </ul>
+    </footer>
+
   </div>
 
   <script src="popup.js"></script>
