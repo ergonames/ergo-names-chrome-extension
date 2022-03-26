@@ -45,5 +45,13 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
     return url;
   }
 
+  function copyAddressToClipboard() {
+    document.getElementById('copy-address').addEventListener('click', async () => {
+      let text = document.getElementById("address").innerHTML;
+      navigator.clipboard.writeText(text);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', resolve);
+  document.addEventListener('DOMContentLoaded', copyAddressToClipboard);
 })();
