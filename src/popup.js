@@ -55,26 +55,20 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
   function toolbarHandler() {
     document.getElementById('home-button').addEventListener('click', () => {
       let homePage = document.getElementById('home-page');
-      let contactPage = document.getElementById('contact-page');
       let settingsPage = document.getElementById('settings-page');
       homePage.style.display = "block";
-      contactPage.style.display = "none";
       settingsPage.style.display = "none";
     });
     document.getElementById('contact-button').addEventListener('click', () => {
       let homePage = document.getElementById('home-page');
-      let contactPage = document.getElementById('contact-page');
       let settingsPage = document.getElementById('settings-page');
       homePage.style.display = "none";
-      contactPage.style.display = "block";
       settingsPage.style.display = "none";
     });
     document.getElementById('settings-button').addEventListener('click', () => {
       let homePage = document.getElementById('home-page');
-      let contactPage = document.getElementById('contact-page');
       let settingsPage = document.getElementById('settings-page');
       homePage.style.display = "none";
-      contactPage.style.display = "none";
       settingsPage.style.display = "block";
     });
   }
