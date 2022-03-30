@@ -68,26 +68,9 @@ body {
 }
 
 .search-button {
-    border: 0;
+    margin: 0 auto;
     display: block;
     padding: 10px 20px;
-    margin: 0 auto;
-    background-color: blue;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: transform .2s ease;
-    user-select: none;
-}
-
-.search-button:focus {
-    outline: none;
-}
-
-.search-button:hover {
-    transform: scale(1.1);
 }
 
 .address-text {
