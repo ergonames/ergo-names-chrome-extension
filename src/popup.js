@@ -59,12 +59,6 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
       homePage.style.display = "block";
       settingsPage.style.display = "none";
     });
-    document.getElementById('contact-button').addEventListener('click', () => {
-      let homePage = document.getElementById('home-page');
-      let settingsPage = document.getElementById('settings-page');
-      homePage.style.display = "none";
-      settingsPage.style.display = "none";
-    });
     document.getElementById('settings-button').addEventListener('click', () => {
       let homePage = document.getElementById('home-page');
       let settingsPage = document.getElementById('settings-page');
