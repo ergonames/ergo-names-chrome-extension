@@ -96,9 +96,28 @@ body {
     word-wrap: break-word;
 }
 
+.copy-button {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    word-wrap: break-word;
+    height: 75px;
+    padding: 10px 20px;
+}
+
 .divider {
     margin: 15px auto;
     width: 80%;
     border: .5px dashed #000;
     opacity: .1;
+}
+
+.settings-title {
+    color: black;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.settings-value {
+    color: blue;
 }

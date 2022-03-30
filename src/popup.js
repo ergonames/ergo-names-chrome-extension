@@ -11,13 +11,13 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
     document.getElementById('button').addEventListener('click', async () => {
       let ergoname = document.getElementById('search').value;
       if (ergoname == "") {
-        document.getElementById("address").innerHTML = "Please Search an ErgoName"
+        document.getElementById("copy-address").innerHTML = "Please Search an ErgoName"
       } else {
         let address = await resolve_response(ergoname);
         if (address == null) {
-          document.getElementById("address").innerHTML = "None";
+          document.getElementById("copy-address").innerHTML = "Ergo Name Not Registered";
         } else {
-          document.getElementById("address").innerHTML = address;
+          document.getElementById("copy-address").innerHTML = address;
         }
       }
     });
@@ -47,7 +47,7 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
 
   function copyAddressToClipboard() {
     document.getElementById('copy-address').addEventListener('click', async () => {
-      let text = document.getElementById("address").innerHTML;
+      let text = document.getElementById("copy-address").innerText;
       navigator.clipboard.writeText(text);
     });
   }
