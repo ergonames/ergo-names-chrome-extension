@@ -1,6 +1,9 @@
 'use strict';
 
 import './popup.css';
+var pjson = require('../package.json');
+
+let NETWORK_TYPE = "TESTNET";
 
 const ergonamesTestnetAPIBaseUrl = "https://testnet-api.ergonames.com";
 const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
@@ -40,7 +43,12 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
   }
 
   function create_url(ergoname) {
-    let url = ergonamesTestnetAPIBaseUrl + "/ergonames/resolve/" + ergoname;
+    let url = "";
+    if (NETWORK_TYPE == "MAINNET") {
+      url = ergonamesMainnetAPIBaseUrl + "/ergonames/resolve/" + ergoname;
+    } else if (NETWORK_TYPE == "TESTNET") {
+      url = ergonamesTestnetAPIBaseUrl + "/ergonames/resolve/" + ergoname;
+    }
     console.log(url);
     return url;
   }
@@ -60,6 +68,8 @@ const ergonamesMainnetAPIBaseUrl = "https://api.ergonames.com";
       settingsPage.style.display = "none";
     });
     document.getElementById('settings-button').addEventListener('click', () => {
+      document.getElementById('extension-version').innerHTML = pjson.version;
+      document.getElementById('network-type').innerHTML = NETWORK_TYPE;
       let homePage = document.getElementById('home-page');
       let settingsPage = document.getElementById('settings-page');
       homePage.style.display = "none";
