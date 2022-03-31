@@ -1,3 +1,9 @@
+:root {
+    --mainBgColor: #191919;
+    --mainAppTextColor: #C84B31;
+    --altAppTextColor: #ECDBBA;
+}
+
 /* normalize css starts here */
 *,
 *::before,
@@ -11,7 +17,7 @@
 
 html {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
-    color: #222;
+    color: white;
 }
 
 body {
@@ -22,7 +28,7 @@ body {
 .app {
     height: 100%;
     padding: 20px;
-    background-color: lightgray;
+    background-color: var(--mainBgColor);
 }
 
 .toolbar {
@@ -37,14 +43,14 @@ body {
 .toolbar button {
     display: inline-block;
     height: 100%;
-    color: black;
+    color: var(--mainAppTextColor);
     background-color: transparent;
     border: none;
     margin: 0 10px;
 }
 
 .toolbar button:hover {
-    color: blue;
+    color: var(--altAppTextColor);
     transform: 0.5s;
 }
 
@@ -54,10 +60,12 @@ body {
 
 .window-title {
     padding-left: 10px;
+    color: var(--mainAppTextColor);
 }
 
 .window-subtitle {
     padding-left: 10px;
+    color: var(--altAppTextColor);
 }
 
 .search-input {
@@ -65,12 +73,27 @@ body {
     margin: 15px auto;
     width: 85%;
     padding: 10px 20px;
+    background-color: var(--mainAppTextColor);
+    color: black;
+    border: 2px solid black;
+}
+
+.search-input::placeholder {
+    color: black;
 }
 
 .search-button {
     margin: 0 auto;
     display: block;
     padding: 10px 20px;
+    background-color: var(--mainAppTextColor);
+    border: 2px solid black;
+    color: black;
+    transition: 0.25s;
+}
+
+.search-button:active {
+    background-color: gray;
 }
 
 .address-text {
@@ -86,6 +109,14 @@ body {
     word-wrap: break-word;
     height: 75px;
     padding: 10px 20px;
+    background-color: var(--mainAppTextColor);
+    border: 2px solid black;
+    color: black;
+    transition: 0.25s;
+}
+
+.copy-button:active {
+    background-color: gray;
 }
 
 .divider {
@@ -96,11 +127,11 @@ body {
 }
 
 .settings-title {
-    color: black;
+    color: var(--mainAppTextColor);
     padding-top: 20px;
     font-size: 20px;
 }
 
 .settings-value {
-    color: blue;
+    color: var(--altAppTextColor);
 }
